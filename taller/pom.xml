@@ -129,7 +129,7 @@
 
 	</dependencies>
 	<build>
-		<finalName>spring-social</finalName>
+		<finalName>taller</finalName>
 	</build>
 
 	<repositories>
