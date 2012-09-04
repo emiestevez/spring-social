@@ -27,5 +27,35 @@
         <prop key="twitter.accessToken">234339887-d4mGE0kmvWEsPmpVbFDyssX64ZywWKQgiO9Ns39U</prop>
         <prop key="twitter.accessTokenSecret">luPha9CO7c1yON0PPM9lcTUPmJlOgCaRLQKzqfTk4</prop>
     </util:properties>
+    
+    <bean class="org.springframework.social.connect.web.ProviderSignInController">
+        <property name="signInUrl" value="/"/>
+    </bean>
+    
+    <bean id="userSignInAdapter" class="com.taller.social.UserSignInAdapter"/>
+
+    <bean id="connectionFactoryLocator" class="org.springframework.social.connect.support.ConnectionFactoryRegistry">
+        <property name="connectionFactories">
+            <list>
+                <bean class="org.springframework.social.twitter.connect.TwitterConnectionFactory">
+                    <constructor-arg value="${twitter.consumerKey}" />
+                    <constructor-arg value="${twitter.consumerSecret}" />
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="usersConnectionRepository" class="org.springframework.social.connect.jdbc.JdbcUsersConnectionRepository">
+        <constructor-arg ref="dataSource" />
+        <constructor-arg ref="connectionFactoryLocator" />
+        <constructor-arg ref="textEncryptor" />
+    </bean>
+
+    <bean id="connectionRepository" factory-method="createConnectionRepository" factory-bean="usersConnectionRepository" scope="request">
+        <constructor-arg value="#{request.userPrincipal.name}" />
+        <aop:scoped-proxy proxy-target-class="false" />
+    </bean>
+
+    <bean id="textEncryptor" class="org.springframework.security.crypto.encrypt.Encryptors" factory-method="noOpText" />
 
 </beans>
