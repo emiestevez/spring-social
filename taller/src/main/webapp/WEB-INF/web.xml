@@ -18,7 +18,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Spring MVC Dispatcher Servlet</servlet-name>
-		<url-pattern>/rest/*</url-pattern>
+		<url-pattern>/service/*</url-pattern>
 	</servlet-mapping>
 	<session-config>
 		<session-timeout>
