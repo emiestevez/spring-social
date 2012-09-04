@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<mvc:annotation-driven/>
+
+	<context:component-scan base-package="com.taller.social" />
+
+	<bean id="twitterTemplate"
+		class="org.springframework.social.twitter.api.impl.TwitterTemplate">
+		<constructor-arg value="${consumerKey}" />
+		<constructor-arg value="${consumerSecret}" />
+		<constructor-arg value="${accessToken}" />
+		<constructor-arg value="${accessTokenSecret}" />
+	</bean>
+
+	<context:property-placeholder
+		properties-ref="defaultProperties" />
+
+	<util:properties id="defaultProperties">
+		<prop key="consumerKey">y84xU5i3VvZbsdIZZ4kLOg</prop>
+		<prop key="consumerSecret">1BS4YnVikFa88x5BLploAfDkLbzBpQtl92Z5eqD5P0</prop>
+		<prop key="accessToken">234339887-d4mGE0kmvWEsPmpVbFDyssX64ZywWKQgiO9Ns39U
+		</prop>
+		<prop key="accessTokenSecret">luPha9CO7c1yON0PPM9lcTUPmJlOgCaRLQKzqfTk4</prop>
+	</util:properties>
+
+	<!-- <bean id="jacksonMessageConverter" -->
+	<!-- class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"></bean> -->
+	<!-- <bean -->
+	<!-- class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"> -->
+	<!-- <property name="messageConverters"> -->
+	<!-- <list> -->
+	<!-- <ref bean="jacksonMessageConverter" /> -->
+	<!-- </list> -->
+	<!-- </property> -->
+	<!-- </bean> -->
+
+</beans>
