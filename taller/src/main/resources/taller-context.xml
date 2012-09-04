@@ -19,19 +19,4 @@
     
     <context:component-scan base-package="com.taller.social" />
 
-    <bean id="twitterTemplate"
-          class="org.springframework.social.twitter.api.impl.TwitterTemplate">
-        <constructor-arg value="${twitter.consumerKey}" />
-        <constructor-arg value="${twitter.consumerSecret}" />
-        <constructor-arg value="${twitter.accessToken}" />
-        <constructor-arg value="${twitter.accessTokenSecret}" />
-    </bean>
-
-    <util:properties id="defaultProperties">
-        <prop key="twitter.consumerKey">y84xU5i3VvZbsdIZZ4kLOg</prop>
-        <prop key="twitter.consumerSecret">1BS4YnVikFa88x5BLploAfDkLbzBpQtl92Z5eqD5P0</prop>
-        <prop key="twitter.accessToken">234339887-d4mGE0kmvWEsPmpVbFDyssX64ZywWKQgiO9Ns39U</prop>
-        <prop key="twitter.accessTokenSecret">luPha9CO7c1yON0PPM9lcTUPmJlOgCaRLQKzqfTk4</prop>
-    </util:properties>
-
 </beans>

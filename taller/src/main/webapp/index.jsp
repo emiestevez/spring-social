@@ -10,7 +10,7 @@
 
         <form id="tw_signin" action="<c:url value="service/signin/twitter"/>" method="POST">
             <button type="submit">
-                <img src="<c:url value="/resources/social/twitter/sign-in-with-twitter-d.png"/>" />
+                <img src="<c:url value="/images/twitter-icon.png"/>" />
             </button>
         </form>
 

@@ -15,7 +15,7 @@ import org.springframework.test.web.server.MockMvc;
 import org.springframework.test.web.server.setup.MockMvcBuilders;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:spring-social-config.xml" })
+@ContextConfiguration(locations = { "classpath:taller-config.xml" })
 public class SocialControllerTest {
 	@Autowired
 	private SocialController socialController;
