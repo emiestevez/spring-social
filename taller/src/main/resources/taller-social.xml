@@ -30,6 +30,7 @@
     
     <bean class="org.springframework.social.connect.web.ProviderSignInController">
         <property name="signInUrl" value="/"/>
+        <property name="signUpUrl" value="/home.jsp"/>
     </bean>
     
     <bean id="userSignInAdapter" class="com.taller.social.UserSignInAdapter"/>

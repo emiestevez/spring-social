@@ -3,16 +3,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Login</title>
+        <title>Taller de Spring Social</title>
 
     </head>
     <body>
 
-        <form id="tw_signin" action="<c:url value="service/signin/twitter"/>" method="POST">
-            <button type="submit">
-                <img src="<c:url value="/images/twitter_sign_in.png"/>" />
-            </button>
-        </form>
 
     </body>
 </html>
