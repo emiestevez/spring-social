@@ -12,7 +12,9 @@
 </head>
 <body>
     
-    Registrate!!!
+    Bienvenido!!!
+    
+    Tus datos son:
 
 
 </body>
