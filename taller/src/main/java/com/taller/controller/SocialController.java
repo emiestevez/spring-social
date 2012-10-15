@@ -4,7 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.social.connect.Connection;
+import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.twitter.api.Tweet;
+import org.springframework.social.twitter.api.Twitter;
 import org.springframework.social.twitter.api.TwitterProfile;
 import org.springframework.social.twitter.api.impl.TwitterTemplate;
 import org.springframework.stereotype.Controller;
@@ -19,6 +22,18 @@ public class SocialController {
 
     @Autowired
     private TwitterTemplate twitterTemplate;
+    
+    @Autowired
+    private ConnectionRepository connectionRepository;
+    
+    
+    @RequestMapping(value = "/usuario/perfil", method = RequestMethod.GET)
+    public @ResponseBody
+    TwitterProfile getDatosUsuario() {
+        Connection<Twitter> connection = connectionRepository.findPrimaryConnection(Twitter.class);
+        Twitter twitter = connection != null ? connection.getApi() : new TwitterTemplate();
+        return twitter.userOperations().getUserProfile();
+    }
 
     @RequestMapping(value = "/twitter/tweet", method = RequestMethod.GET)
     public @ResponseBody
