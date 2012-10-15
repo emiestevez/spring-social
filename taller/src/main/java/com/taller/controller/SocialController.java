@@ -19,15 +19,6 @@ public class SocialController {
 
     @Autowired
     private TwitterTemplate twitterTemplate;
-    @Autowired
-    @Qualifier("datos")
-    private String datos;
-
-    @RequestMapping(value = "/user/id", method = RequestMethod.GET)
-    public @ResponseBody
-    String getUserId() {
-        return datos;
-    }
 
     @RequestMapping(value = "/twitter/tweet", method = RequestMethod.GET)
     public @ResponseBody

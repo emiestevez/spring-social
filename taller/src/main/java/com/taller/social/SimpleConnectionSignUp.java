@@ -15,8 +15,6 @@
  */
 package com.taller.social;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionSignUp;
 import org.springframework.social.connect.UserProfile;
@@ -30,13 +28,9 @@ import org.springframework.social.connect.UserProfile;
  */
 public final class SimpleConnectionSignUp implements ConnectionSignUp {
 
-    @Autowired
-    @Qualifier("datos")
-    private String datos;
-
     public String execute(Connection<?> connection) {
         UserProfile userProfile = connection.fetchUserProfile();
-        datos = userProfile.getUsername();
+
         return userProfile.getUsername();
     }
 }

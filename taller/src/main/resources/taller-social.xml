@@ -69,7 +69,4 @@
 
     <bean id="textEncryptor" class="org.springframework.security.crypto.encrypt.Encryptors" factory-method="noOpText" />
     
-    <bean id="datos" class="java.lang.String"/>
-    
-
 </beans>
