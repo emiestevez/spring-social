@@ -32,8 +32,8 @@
     
     <bean class="org.springframework.social.connect.web.ProviderSignInController">
         <property name="signInUrl" value="/"/>
-        <!--<property name="signUpUrl" value="/home.jsp"/>-->
-        <property name="postSignInUrl" value="/post.jsp"/>
+        <property name="signUpUrl" value="/registrate.jsp"/>
+        <property name="postSignInUrl" value="/home.jsp"/>
     </bean>
     
     <bean id="userSignInAdapter" class="com.taller.social.UserSignInAdapter"/>
@@ -57,7 +57,10 @@
         <constructor-arg ref="dataSource" />
         <constructor-arg ref="connectionFactoryLocator" />
         <constructor-arg ref="textEncryptor" />
+        <property name="connectionSignUp" ref="connectionSignUp"/>
     </bean>
+    
+    <bean id="connectionSignUp" class="com.taller.social.SimpleConnectionSignUp"/>
 
     <bean id="connectionRepository" factory-method="createConnectionRepository" factory-bean="usersConnectionRepository" scope="request">
         <constructor-arg value="#{request.userPrincipal.name}" />
