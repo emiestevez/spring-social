@@ -69,4 +69,6 @@
 
     <bean id="textEncryptor" class="org.springframework.security.crypto.encrypt.Encryptors" factory-method="noOpText" />
     
+    <bean id="listaDeUsuarios" class="java.util.ArrayList"/>
+    
 </beans>
