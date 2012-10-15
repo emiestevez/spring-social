@@ -15,14 +15,16 @@
  */
 package com.taller.social;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionSignUp;
 import org.springframework.social.connect.UserProfile;
+
+import ch.qos.logback.classic.Logger;
+
+import com.taller.data.repository.UsuarioRepository;
+import com.taller.domain.Usuario;
 
 /**
  * Simple little {@link ConnectionSignUp} command that allocates new userIds in
@@ -33,25 +35,25 @@ import org.springframework.social.connect.UserProfile;
  */
 public final class SimpleConnectionSignUp implements ConnectionSignUp {
 	@Autowired
-	@Qualifier(value = "listaDeUsuarios")
-	private ArrayList<String> arrayList;
+	private UsuarioRepository usuarioRepository;
+
+	private Logger logger = (Logger) LoggerFactory.getLogger(SimpleConnectionSignUp.class);
 
 	public String execute(Connection<?> connection) {
 		UserProfile userProfile = connection.fetchUserProfile();
 
-		System.out.println("Tamaño de la lista: " + arrayList.size());
+		logger.debug("El username es {}", userProfile.getUsername());
 
-		if (arrayList.size() == 0) {
-			arrayList.add(userProfile.getUsername());
+		Usuario usuario = usuarioRepository.buscarPorUsername(userProfile.getUsername());
+
+		if (usuario == null) {
+			usuario = new Usuario();
+			usuario.setNombre(userProfile.getFirstName());
+			usuario.setUsername(userProfile.getUsername());
+			usuarioRepository.save(usuario);
 			return null;
 		}
 
-		if (arrayList.contains(userProfile.getUsername())) {
-			return userProfile.getUsername();
-		} else {
-			arrayList.add(userProfile.getUsername());
-			return null;
-		}
-
+		return usuario.getUsername();
 	}
 }
