@@ -53,9 +53,5 @@ public final class SimpleConnectionSignUp implements ConnectionSignUp {
 			return null;
 		}
 
-		// if (userProfile.getUsername().equals("epestevez")) {
-		// return null;
-		// }
-
 	}
 }
