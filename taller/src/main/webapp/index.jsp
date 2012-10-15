@@ -6,25 +6,11 @@
         <title>Login</title>
         <link rel="stylesheet" href="/taller/css/taller.css" type="text/css"/>
     </head>
-    <body>
-        <div id="tab-nav" class="global-nav">
-            <div id="navegation">
-                <ul>
-                    <li class="navegation-first">Mi aplicacion</li>
-                    <li class="navegation-last">Ingresar</li>
-                </ul>
-            </div>
-        </div>
-
+    <body class="taller">
+        
         <form id="tw_signin" action="<c:url value="service/signin/twitter"/>" method="POST">
-            <button type="submit">
+            <button type="submit" class="button-social">
                 <img src="<c:url value="/images/twitter-signin.png"/>" />
-            </button>
-        </form>
-
-        <form id="fb_signin" action="<c:url value="service/signin/facebook"/>" method="POST">
-            <button type="submit">
-                <img src="<c:url value="/images/facebook-signin.png"/>" />
             </button>
         </form>
 
