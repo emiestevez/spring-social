@@ -15,22 +15,28 @@
  */
 package com.taller.social;
 
-import java.util.concurrent.atomic.AtomicLong;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionSignUp;
+import org.springframework.social.connect.UserProfile;
 
 /**
- * Simple little {@link ConnectionSignUp} command that allocates new userIds in memory.
- * Doesn't bother storing a user record in any local database, since this quickstart just stores the user id in a cookie.
+ * Simple little {@link ConnectionSignUp} command that allocates new userIds in
+ * memory. Doesn't bother storing a user record in any local database, since
+ * this quickstart just stores the user id in a cookie.
+ *
  * @author Keith Donald
  */
 public final class SimpleConnectionSignUp implements ConnectionSignUp {
 
-	private final AtomicLong userIdSequence = new AtomicLong();
-	
-	public String execute(Connection<?> connection) {
-		return Long.toString(userIdSequence.incrementAndGet());
-	}
+    @Autowired
+    @Qualifier("datos")
+    private String datos;
 
+    public String execute(Connection<?> connection) {
+        UserProfile userProfile = connection.fetchUserProfile();
+        datos = userProfile.getUsername();
+        return userProfile.getUsername();
+    }
 }

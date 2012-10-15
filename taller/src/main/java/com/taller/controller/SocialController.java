@@ -16,26 +16,35 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping(value = "/social")
 public class SocialController {
-	@Autowired
-	private TwitterTemplate twitterTemplate;
-	
-	@RequestMapping(value = "/twitter/tweet", method = RequestMethod.GET)
-	public @ResponseBody
-	List<Tweet> buscarTweets() {
-		return twitterTemplate.timelineOperations().getHomeTimeline();
 
-	}
+    @Autowired
+    private TwitterTemplate twitterTemplate;
+    @Autowired
+    @Qualifier("datos")
+    private String datos;
 
-	@RequestMapping(value = "/twitter/perfil", method = RequestMethod.GET)
-	public @ResponseBody
-	TwitterProfile buscarPerfil() {
-		return twitterTemplate.userOperations().getUserProfile();
-	}
+    @RequestMapping(value = "/user/id", method = RequestMethod.GET)
+    public @ResponseBody
+    String getUserId() {
+        return datos;
+    }
 
-	@RequestMapping(value = "/twitter/tweet/{mensaje}", method = RequestMethod.POST)
-	public @ResponseBody
-	Tweet crearTweet(@PathVariable String mensaje) {
-		return twitterTemplate.timelineOperations().updateStatus(mensaje);
-	}
+    @RequestMapping(value = "/twitter/tweet", method = RequestMethod.GET)
+    public @ResponseBody
+    List<Tweet> buscarTweets() {
+        return twitterTemplate.timelineOperations().getHomeTimeline();
 
+    }
+
+    @RequestMapping(value = "/twitter/perfil", method = RequestMethod.GET)
+    public @ResponseBody
+    TwitterProfile buscarPerfil() {
+        return twitterTemplate.userOperations().getUserProfile();
+    }
+
+    @RequestMapping(value = "/twitter/tweet/{mensaje}", method = RequestMethod.POST)
+    public @ResponseBody
+    Tweet crearTweet(@PathVariable String mensaje) {
+        return twitterTemplate.timelineOperations().updateStatus(mensaje);
+    }
 }

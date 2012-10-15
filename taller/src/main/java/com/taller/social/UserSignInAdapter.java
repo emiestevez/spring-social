@@ -18,7 +18,6 @@ import org.springframework.web.context.request.NativeWebRequest;
 public class UserSignInAdapter implements SignInAdapter {
     
     public String signIn(String userId, Connection<?> connection, NativeWebRequest request) {
-        UserProfile userProfile = connection.fetchUserProfile();
         
         System.out.println("El userId es " + userId);
         
