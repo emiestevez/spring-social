@@ -12,6 +12,26 @@
 
 <title>Taller de Spring Social</title>
 
+<script>
+	$(document).ready(function() {
+		$.ajax({
+			type : "GET",
+			url : "http://localhost:8080/taller/service/usuario",
+			contentType : "application/json; charset=utf-8",
+			dataType : "json",
+			success : function(msg) {
+				$('input#input_nombre').val(msg.nombre);
+				$('input#input_username').val(msg.username);
+			},
+			error : function(err) {
+				alert('error');
+
+			}
+		});
+
+	});
+</script>
+
 </head>
 <body>
 
@@ -21,14 +41,14 @@
         <div class="control-group">
             <label class="control-label">Nombre</label>
             <div class="controls">
-                <input type="text" placeholder="Type something">
+                <input id="input_nombre" type="text">
             </div>
         </div>
 
         <div class="control-group">
             <label class="control-label">Username</label>
             <div class="controls">
-                <input type="text" placeholder="Type something">
+                <input type="text" id="input_username">
             </div>
         </div>
 
@@ -39,12 +59,6 @@
             </div>
         </div>
 
-        <div class="control-group">
-            <div class="controls">
-                <label class="checkbox"> <input type="checkbox"> Remember me </label>
-                <button type="submit" class="btn">Sign in</button>
-            </div>
-        </div>
     </form>
 
 
