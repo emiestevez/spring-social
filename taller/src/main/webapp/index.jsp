@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="/taller/css/bootstrap/css/bootstrap.css" />
 </head>
 <body>
-    <legend>Mi aplicacion</legend>
 
     <form id="tw_signin" action="<c:url value="service/signin/twitter"/>" method="POST">
         <button type="submit" class="button-social">

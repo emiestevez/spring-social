@@ -6,6 +6,9 @@
 
 <script src="/taller/js/jquery-1.8.0.min.js"></script>
 <script src="/taller/js/taller-spring-social.js"></script>
+<script src="/taller/js/bootstrap/bootstrap.js"></script>
+<link rel="stylesheet" href="/taller/css/bootstrap/css/bootstrap-responsive.css" />
+<link rel="stylesheet" href="/taller/css/bootstrap/css/bootstrap.css" />
 
 <title>Mi aplicacion</title>
 
@@ -31,8 +34,11 @@
 
 </head>
 <body>
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <strong>Bienvenido <label id="usuario" style="display: inline;"/></strong>
+    </div>
 
-    Bienvenido <label id="usuario"/>
 
 </body>
 </html>

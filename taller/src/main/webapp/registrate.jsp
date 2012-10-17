@@ -59,8 +59,9 @@
             </div>
         </div>
 
-    </form>
+        <button type="button" class="btn btn-success" onclick="location.href='home.jsp'" style="margin-left: 10%">Ingresar</button>
 
+    </form>
 
 </body>
 </html>
