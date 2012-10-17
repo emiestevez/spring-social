@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/taller/css/bootstrap/css/bootstrap-responsive.css" />
 <link rel="stylesheet" href="/taller/css/bootstrap/css/bootstrap.css" />
 
-<title>Taller de Spring Social</title>
+<title>Mi aplicacion</title>
 
 <script>
 	$(document).ready(function() {

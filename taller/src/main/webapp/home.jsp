@@ -7,15 +7,32 @@
 <script src="/taller/js/jquery-1.8.0.min.js"></script>
 <script src="/taller/js/taller-spring-social.js"></script>
 
-<title>Taller de Spring Social</title>
+<title>Mi aplicacion</title>
+
+<script>
+	$(document).ready(function() {
+		$.ajax({
+			type : "GET",
+			url : "http://localhost:8080/taller/service/usuario",
+			contentType : "application/json; charset=utf-8",
+			dataType : "json",
+			success : function(msg) {
+				$('input#input_nombre').val(msg.nombre);
+				$('label#usuario').text(msg.nombre);
+			},
+			error : function(err) {
+				alert('error');
+
+			}
+		});
+
+	});
+</script>
 
 </head>
 <body>
-    
-    Bienvenido!!!
-    
-    Tus datos son:
 
+    Bienvenido <label id="usuario"/>
 
 </body>
 </html>

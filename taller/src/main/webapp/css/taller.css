@@ -1,14 +1,11 @@
 @CHARSET "ISO-8859-1";
 
-.taller {
-	background-image: url("/taller/images/Project_Social.png");
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 100%;
-	background-position-y: 0%;
+html {
+	background: url(/taller/images/Project_Social.png) no-repeat center
+		center fixed;
 }
 
-.button-social{
+.button-social {
 	padding: 0px 0px;
 	border: 0;
 	background-color: transparent;
